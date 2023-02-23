@@ -90,9 +90,8 @@ public class StudentRepository {
             {
                 s.remove(i);
             }
-
-            st.remove(tName);
         }
+        st.remove(tName);
 
         if(t.containsKey(tName))
         {
