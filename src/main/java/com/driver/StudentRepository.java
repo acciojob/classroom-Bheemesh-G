@@ -10,46 +10,40 @@ import java.util.List;
 
 @Repository
 public class StudentRepository {
-    HashMap<String,Student> s = new HashMap<>();
-    HashMap<String,Teacher> t = new HashMap<>();
+    HashMap<String, Student> s = new HashMap<>();
+    HashMap<String, Teacher> t = new HashMap<>();
     HashMap<String, List<String>> st = new HashMap<>();
 
 
     //for adding student 1
-    public void addStudent(Student student)
-    {
-       s.put(student.getName(),student);
+    public void addStudent(Student student) {
+        s.put(student.getName(), student);
     }
 
 
     //for adding teacher 2
-    public void addTeacher(Teacher teacher)
-    {
-        t.put(teacher.getName(),teacher);
+    public void addTeacher(Teacher teacher) {
+        t.put(teacher.getName(), teacher);
     }
+
     //for adding teacher and student 3
-    public void addStudentTeacherPair(String sName,String tName)
-    {
-        if(s.containsKey(sName) && t.containsKey(tName))
-        {
-            s.put(sName,s.get(sName));
-            t.put(tName,t.get(tName));
+    public void addStudentTeacherPair(String sName, String tName) {
+        if (s.containsKey(sName) && t.containsKey(tName)) {
+            s.put(sName, s.get(sName));
+            t.put(tName, t.get(tName));
             List<String> temp = new ArrayList<>();
-            if(st.containsKey(tName))
-            {
+            if (st.containsKey(tName)) {
                 temp = st.get(tName);
             }
             temp.add(sName);
-            st.put(tName,temp);
+            st.put(tName, temp);
         }
     }
 
 
     //getting student by name 4
-    public Student getStudentByName(String sName)
-    {
-        if(s.containsKey(sName))
-        {
+    public Student getStudentByName(String sName) {
+        if (s.containsKey(sName)) {
             return s.get(sName);
         }
 
@@ -58,10 +52,8 @@ public class StudentRepository {
 
 
     //getting teacher by name 5
-    public Teacher getTeacherByName(String tName)
-    {
-        if(t.containsKey(tName))
-        {
+    public Teacher getTeacherByName(String tName) {
+        if (t.containsKey(tName)) {
             return t.get(tName);
         }
 
@@ -69,10 +61,8 @@ public class StudentRepository {
     }
 
     //list of all students corresponding to teacher 6
-    public List<String> getStudentByTeacherName(String tName)
-    {
-        if(st.containsKey(tName))
-        {
+    public List<String> getStudentByTeacherName(String tName) {
+        if (st.containsKey(tName)) {
             return st.get(tName);
         }
 
@@ -81,11 +71,9 @@ public class StudentRepository {
 
 
     //7
-    public List<String> getAllStudents()
-    {
+    public List<String> getAllStudents() {
         List<String> temp = new ArrayList<>();
-        for(String i:s.keySet())
-        {
+        for (String i : s.keySet()) {
             temp.add(i);
         }
 
@@ -94,40 +82,43 @@ public class StudentRepository {
 
     //8
 
-    public void deleteTeacherByName(String tName)
-    {
-        if(st.containsKey(tName))
+    public void deleteTeacherByName(String tName) {
+        List<String> studentList = new ArrayList<>();
+        if (st.containsKey(tName)) {
+            studentList = st.get(tName);
+            for (String student : studentList) {
+                if (s.containsKey(student)) {
+                    s.remove(student);
+                }
+            }
+
+            if (t.containsKey(tName)) {
+                t.remove(tName);
+            }
+            st.remove(tName);
+        }
+    }
+
+
+        //9
+
+        public void deleteAllTeachers()
         {
-            List<String> temp = st.get(tName);
-            for(String i:temp)
-            {
-                s.remove(i);
+            t = new HashMap<>();
+            HashSet<String> studentSet = new HashSet<>();
+            for (String i : st.keySet()) {
+                for (String sName : st.get(i)) {
+                    studentSet.add(sName);
+                }
             }
-        }
-        t.remove(tName);
-        st.remove(tName);
-    }
 
-
-    //9
-
-    public void deleteAllTeachers()
-    {
-        t = new HashMap<>();
-        HashSet<String> studentSet = new HashSet<>();
-        for(String tName : st.keySet()){
-            for(String sName : st.get(tName)){
-                studentSet.add(sName);
+            for (String sName : studentSet) {
+                if (s.containsKey(sName)) {
+                    s.remove(sName);
+                }
             }
-        }
 
-        for(String sName : studentSet){
-            if(s.containsKey(sName)){
-                s.remove(sName);
-            }
+            st = new HashMap<>();
         }
-
-        st = new HashMap<>();
-    }
 
 }
