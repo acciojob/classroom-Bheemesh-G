@@ -29,7 +29,7 @@ public class StudentRepository {
     //for adding teacher and student
     public void addStudentTeacherPair(String sName,String tName)
     {
-        if(s.containsKey(sName) && t.containsKey(tName))
+      /*  if(s.containsKey(sName) && t.containsKey(tName))
         {
             s.put(sName,s.get(sName));
             t.put(tName,t.get(tName));
@@ -40,7 +40,7 @@ public class StudentRepository {
             }
             temp.add(sName);
             st.put(tName,temp);
-        }
+        }  */
     }
 
 
@@ -67,7 +67,7 @@ public class StudentRepository {
         return null;
     }
 
-    //list of all students corrsponding to tearcher
+    //list of all students corresponding to teacher
     public ArrayList<String> getStudentByTeacherName(String tName)
     {
         if(st.containsKey(tName))
@@ -75,7 +75,7 @@ public class StudentRepository {
             return st.get(tName);
         }
 
-        return new ArrayList<String>();
+        return new ArrayList<>();
     }
 
     public ArrayList<String> getAllStudents()
@@ -96,18 +96,10 @@ public class StudentRepository {
             ArrayList<String> temp = st.get(tName);
             for(String i:temp)
             {
-                if(s.containsKey(i))
-                {
-                    s.remove(i);
-                }
+                s.remove(i);
             }
         }
-
-        if(t.containsKey(tName))
-        {
-            t.remove(tName);
-        }
-
+        t.remove(tName);
         st.remove(tName);
     }
 
