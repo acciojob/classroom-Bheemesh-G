@@ -83,7 +83,7 @@ public class StudentRepository {
     //8
 
     public void deleteTeacherByName(String tName) {
-        List<String> studentList = new ArrayList<>();
+      /*  List<String> studentList = new ArrayList<>();
         if (st.containsKey(tName)) {
             studentList = st.get(tName);
             for (String student : studentList) {
@@ -96,7 +96,7 @@ public class StudentRepository {
                 t.remove(tName);
             }
             st.remove(tName);
-        }
+        } */
     }
 
 
@@ -104,7 +104,7 @@ public class StudentRepository {
 
         public void deleteAllTeachers()
         {
-            t = new HashMap<>();
+           /* t = new HashMap<>();
             HashSet<String> studentSet = new HashSet<>();
             for (String i : st.keySet()) {
                 for (String sName : st.get(i)) {
@@ -118,7 +118,7 @@ public class StudentRepository {
                 }
             }
 
-            st = new HashMap<>();
+            st = new HashMap<>(); */
         }
 
 }
