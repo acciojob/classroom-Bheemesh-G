@@ -29,7 +29,7 @@ public class StudentRepository {
     //for adding teacher and student
     public void addStudentTeacherPair(String sName,String tName)
     {
-      /*  if(s.containsKey(sName) && t.containsKey(tName))
+        if(s.containsKey(sName) && t.containsKey(tName))
         {
             s.put(sName,s.get(sName));
             t.put(tName,t.get(tName));
@@ -40,7 +40,7 @@ public class StudentRepository {
             }
             temp.add(sName);
             st.put(tName,temp);
-        }  */
+        }
     }
 
 
