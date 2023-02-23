@@ -70,10 +70,10 @@ public class StudentRepository {
     //list of all students corresponding to teacher 6
     public List<String> getStudentByTeacherName(String tName)
     {
-       /* if(st.containsKey(tName))
+        if(st.containsKey(tName))
         {
             return st.get(tName);
-        } */
+        }
 
         return new ArrayList<>();
     }
@@ -83,10 +83,10 @@ public class StudentRepository {
     public List<String> getAllStudents()
     {
         List<String> temp = new ArrayList<>();
-        for(String i:s.keySet())
+       /* for(String i:s.keySet())
         {
             temp.add(i);
-        }
+        } */
 
         return temp;
     }
