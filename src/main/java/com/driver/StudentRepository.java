@@ -96,15 +96,19 @@ public class StudentRepository {
             ArrayList<String> temp = st.get(tName);
             for(String i:temp)
             {
-                s.remove(i);
+                if(s.containsKey(i))
+                {
+                    s.remove(i);
+                }
             }
         }
-        st.remove(tName);
 
         if(t.containsKey(tName))
         {
             t.remove(tName);
         }
+
+        st.remove(tName);
     }
 
     public void deleteAllTeachers()
@@ -117,7 +121,7 @@ public class StudentRepository {
                 s.remove(j);
             }
 
-            st.remove(i);
+         //   st.remove(i);
         }
     }
 
