@@ -4,36 +4,36 @@ import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-
+import java.util.List;
 
 
 @Repository
 public class StudentRepository {
     HashMap<String,Student> s = new HashMap<>();
     HashMap<String,Teacher> t = new HashMap<>();
-    HashMap<String, ArrayList<String>> st = new HashMap<>();
+    HashMap<String, List<String>> st = new HashMap<>();
 
 
-    //for adding student
+    //for adding student 1
     public void addStudent(Student student)
     {
        s.put(student.getName(),student);
     }
 
 
-    //for adding teacher
+    //for adding teacher 2
     public void addTeacher(Teacher teacher)
     {
         t.put(teacher.getName(),teacher);
     }
-    //for adding teacher and student
+    //for adding teacher and student 3
     public void addStudentTeacherPair(String sName,String tName)
     {
         if(s.containsKey(sName) && t.containsKey(tName))
         {
             s.put(sName,s.get(sName));
             t.put(tName,t.get(tName));
-            ArrayList<String> temp = new ArrayList<>();
+            List<String> temp = new ArrayList<>();
             if(st.containsKey(tName))
             {
                 temp = st.get(tName);
@@ -44,19 +44,19 @@ public class StudentRepository {
     }
 
 
-    //getting student by name
+    //getting student by name 4
     public Student getStudentByName(String sName)
     {
-        if(s.containsKey(sName))
+      /*  if(s.containsKey(sName))
         {
             return s.get(sName);
         }
 
-        return null;
+        return null; */
     }
 
 
-    //getting teacher by name
+    //getting teacher by name 5
     public Teacher getTeacherByName(String tName)
     {
         if(t.containsKey(tName))
@@ -67,8 +67,8 @@ public class StudentRepository {
         return null;
     }
 
-    //list of all students corresponding to teacher
-    public ArrayList<String> getStudentByTeacherName(String tName)
+    //list of all students corresponding to teacher 6
+    public List<String> getStudentByTeacherName(String tName)
     {
         if(st.containsKey(tName))
         {
@@ -78,9 +78,11 @@ public class StudentRepository {
         return new ArrayList<>();
     }
 
-    public ArrayList<String> getAllStudents()
+
+    //7
+    public List<String> getAllStudents()
     {
-        ArrayList<String> temp = new ArrayList<>();
+        List<String> temp = new ArrayList<>();
         for(String i:s.keySet())
         {
             temp.add(i);
@@ -89,11 +91,13 @@ public class StudentRepository {
         return temp;
     }
 
+    //8
+
     public void deleteTeacherByName(String tName)
     {
         if(st.containsKey(tName))
         {
-            ArrayList<String> temp = st.get(tName);
+            List<String> temp = st.get(tName);
             for(String i:temp)
             {
                 s.remove(i);
@@ -103,11 +107,14 @@ public class StudentRepository {
         st.remove(tName);
     }
 
+
+    //9
+
     public void deleteAllTeachers()
     {
         for(String i:st.keySet())
         {
-            ArrayList<String> temp = st.get(i);
+            List<String> temp = st.get(i);
             for(String j:temp)
             {
                 s.remove(j);

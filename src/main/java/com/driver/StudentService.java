@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class StudentService {
@@ -37,12 +38,12 @@ public class StudentService {
         return studentRepository.getTeacherByName(tName);
     }
 
-    public ArrayList<String> getStudentByTeacherName(String tName)
+    public List<String> getStudentByTeacherName(String tName)
     {
         return studentRepository.getStudentByTeacherName(tName);
     }
 
-    public ArrayList<String> getAllStudents()
+    public List<String> getAllStudents()
     {
         return studentRepository.getAllStudents();
     }
