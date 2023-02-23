@@ -59,13 +59,23 @@ public class StudentRepository {
     //getting teacher by name
     public Teacher getTeacherByName(String tName)
     {
-        return t.get(tName);
+        if(t.containsKey(tName))
+        {
+            return t.get(tName);
+        }
+
+        return null;
     }
 
     //list of all students corrsponding to tearcher
     public ArrayList<String> getStudentByTeacherName(String tName)
     {
-        return st.get(tName);
+        if(st.containsKey(tName))
+        {
+            return st.get(tName);
+        }
+
+        return new ArrayList<String>();
     }
 
     public ArrayList<String> getAllStudents()
