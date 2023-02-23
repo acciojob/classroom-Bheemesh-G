@@ -59,10 +59,10 @@ public class StudentRepository {
     //getting teacher by name 5
     public Teacher getTeacherByName(String tName)
     {
-        if(t.containsKey(tName))
+       /* if(t.containsKey(tName))
         {
             return t.get(tName);
-        }
+        } */
 
         return null;
     }
