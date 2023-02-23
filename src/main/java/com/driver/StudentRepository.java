@@ -47,12 +47,10 @@ public class StudentRepository {
     //getting student by name 4
     public Student getStudentByName(String sName)
     {
-      /*  if(s.containsKey(sName))
+        if(s.containsKey(sName))
         {
             return s.get(sName);
         }
-
-        return null; */
 
         return null;
     }
