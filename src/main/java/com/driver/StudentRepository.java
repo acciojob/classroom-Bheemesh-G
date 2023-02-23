@@ -83,10 +83,10 @@ public class StudentRepository {
     public List<String> getAllStudents()
     {
         List<String> temp = new ArrayList<>();
-       /* for(String i:s.keySet())
+        for(String i:s.keySet())
         {
             temp.add(i);
-        } */
+        }
 
         return temp;
     }
@@ -95,7 +95,7 @@ public class StudentRepository {
 
     public void deleteTeacherByName(String tName)
     {
-        if(st.containsKey(tName))
+      /*  if(st.containsKey(tName))
         {
             List<String> temp = st.get(tName);
             for(String i:temp)
@@ -104,7 +104,7 @@ public class StudentRepository {
             }
         }
         t.remove(tName);
-        st.remove(tName);
+        st.remove(tName); */
     }
 
 
