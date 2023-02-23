@@ -105,7 +105,7 @@ public class StudentRepository {
                 s.remove(j);
             }
 
-            st.remove(i);
+          //  st.remove(i);
         }
     }
 
