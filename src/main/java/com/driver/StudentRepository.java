@@ -59,10 +59,10 @@ public class StudentRepository {
     //getting teacher by name 5
     public Teacher getTeacherByName(String tName)
     {
-       /* if(t.containsKey(tName))
+        if(t.containsKey(tName))
         {
             return t.get(tName);
-        } */
+        }
 
         return null;
     }
@@ -70,10 +70,10 @@ public class StudentRepository {
     //list of all students corresponding to teacher 6
     public List<String> getStudentByTeacherName(String tName)
     {
-        if(st.containsKey(tName))
+       /* if(st.containsKey(tName))
         {
             return st.get(tName);
-        }
+        } */
 
         return new ArrayList<>();
     }
