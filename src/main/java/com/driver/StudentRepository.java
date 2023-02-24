@@ -28,15 +28,22 @@ public class StudentRepository {
 
     //for adding teacher and student 3
     public void addStudentTeacherPair(String sName, String tName) {
-        if (s.containsKey(sName) && t.containsKey(tName)) {
-            s.put(sName, s.get(sName));
-            t.put(tName, t.get(tName));
-            List<String> temp = new ArrayList<>();
-            if (st.containsKey(tName)) {
-                temp = st.get(tName);
+
+        if(s.containsKey(sName) && t.containsKey(tName))
+        {
+            s.put(sName,s.get(sName));
+            t.put(tName,t.get(tName));
+            if(st.containsKey(tName))
+            {
+                List<String> temp = st.get(tName);
+                temp.add(sName);
+                st.put(tName,temp);
             }
-            temp.add(sName);
-            st.put(tName, temp);
+            else {
+                List<String> temp = new ArrayList<>();
+                temp.add(sName);
+                st.put(tName,temp);
+            }
         }
     }
 
